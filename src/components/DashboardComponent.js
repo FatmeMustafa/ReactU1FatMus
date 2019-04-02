@@ -29,8 +29,9 @@ class DashboardComponent extends Component {
   }
   
   //updates the users state and removes the last element from the list
+  //HELP ROBIN -> WHY DOES IT NOT WORK WITH POP() ?
   removeUser = () => {
-    this.setState({ users: this.state.users.slice(0, this.state.users.length - 1)})   //HELP ROBIN -> WHY DOES IT NOT WORK WITH POP() ?
+    this.setState({ users: this.state.users.slice(0, this.state.users.length - 1)}) 
   }
 
   //updates the color state and changes color depending on the boolean value  

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './WrapperComponent.module.css';
 
 /*The purpose of WrapperComponent is to "wrap around" the two cards: UserComponent and form. 
 It includes a button to toggle the content of the cards(toggleContent) and change the button name, depending on the boolean value from state.
@@ -20,37 +21,19 @@ class WrapperComponent extends Component {
   }
 
   render() {
-    //using inline styling to style cards, toggleBTN and line
-    const styleCards = {
-      boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
-      transition: "0.3s",
-      backgroundColor: "rgb(228, 228, 228)",
-      padding: "18px",
-      borderRadius: "10px"
-    }
-    
-    const styleToggleBTN = {
-      width: "50%",
-      margin: "0 auto",
-      display: "block"
-    }
-    
-    const styleLine = {
-      borderTop: "0.5px solid rgb(175, 175, 175)",
-      width: "70%",
-      margin: "0 auto",
-      display: "block",
-      marginBottom: "25px",
-      marginTop: "25px"
-    }
-
+  //HELP ROBIN -> THIS CODE WILL NOT WORK IF ADDED TO MODULE.CSS! IT GETS OVERWRITTEN BY BOOTSTRAP HOW DO I SOLVE THIS?
+  const styleToggleBTN = {
+    width: "50%",
+    margin: "0 auto",
+    display: "block" 
+  }
     return (
-      <div style={styleCards}>
+      <div className={styles.styleCards}>
         {
           this.state.content === true ?
           <div>{this.props.children}</div> : null
         }
-        <p style={styleLine}></p>
+        <p className={styles.styleLine}></p>
         <button className="btn btn-info" style={styleToggleBTN} onClick={this.toggleContent}>{this.state.content ? "Hide content" : "Show content"}</button>
       </div>
     );
